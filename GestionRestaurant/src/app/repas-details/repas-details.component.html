@@ -1,0 +1,23 @@
+
+<br><br><br>
+<div class="container" style="text-align:center">
+    <h1 class="title">
+      *^* DETAILS DES REPAS *^*
+    </h1>
+     <br/>
+    
+    <table mat-table class="table table-striped table-bordered table-dark mat-elevation-z8">
+        <tr>
+            <th>Nom des repas </th>
+            <th>Quantité des Repas</th>
+            <th>Nom des ingredients</th>
+            <th>Quantité des ingredients</th>
+        </tr>
+        <tr *ngFor="let det of repasDetail">
+            <td>{{ det.nom_repas }}</td>
+            <td>{{ det.quantite_repas }}</td>
+            <td>{{ det.nom_ingredient }}</td>
+            <td>{{ det.quantite_ingredient }}</td>
+        </tr>
+    </table>
+</div>

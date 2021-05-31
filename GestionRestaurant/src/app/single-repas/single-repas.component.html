@@ -1,0 +1,49 @@
+
+<br><br><br>
+
+
+<p></p>
+
+<div class="container" >
+    <div class="container-fluid">
+        <p>* Pour les <strong>{{repasOne.nom_repas}}(s)</strong></p>
+        <table>
+            <tr>
+                <th>
+                     1 <strong>{{repasOne.nom_repas}}</strong> necessite:
+                </th>
+            </tr>
+            <tr *ngFor="let re of repasIngredient">
+                <td *ngIf="re.id_repas === repasOne.id_repas">  
+                    <ul style="margin-left: 7em;">
+                        <li>
+                            <strong>{{re.quantite_ingredient}}</strong>{{re.nom_ingredient}}
+                        </li>
+                    </ul>                      
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                     <strong>{{repasOne.quantite_repas}} {{repasOne.nom_repas}}(s)</strong> necessitent:
+                </th>
+            </tr>
+            <tr *ngFor="let re of repasIngredient">
+                <td *ngIf="re.id_repas === repasOne.id_repas">  
+                    <ul style="margin-left: 7em;">
+                        <li>
+                            <strong>{{(re.quantite_ingredient*1)*(re.quantite_repas*1)}}</strong>{{re.nom_ingredient}}
+                        </li>
+                    </ul>                      
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="venterepas/{{repasOne.id_repas}}" class="btn btn-outline-success btn-sm" (click)="confirmeD()">Valider ce repas</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

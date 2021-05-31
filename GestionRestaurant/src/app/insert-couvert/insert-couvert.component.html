@@ -1,0 +1,25 @@
+<br/><br/><br/>
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5" style="margin-left: 25%;">
+                <table mat-table class="table table-bordered mat-elevation-z8">
+                    <tr class="table-primary">
+                        <th> <h2>Insérer le couvert</h2></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form [formGroup]="addCouvert" (ngSubmit)="onSubmit()">
+                                Element du couvert<input type="text" class= "form-control" formControlName="element_couvert" placeholder="element"><br>
+                                Prix<input matInput type="text" class= "form-control" formControlName="prix_couvert" placeholder="prix"><br>
+                                <button  class="btn btn-outline-success btn-sm" type="submit" [disabled] ="!addCouvert.valid" (click)="confirmeC()">Valider</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

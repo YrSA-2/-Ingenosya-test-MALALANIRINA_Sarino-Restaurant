@@ -1,0 +1,27 @@
+<br/><br/><br/>
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5" style="margin-left: 25%;">
+                <table mat-table class="table table-bordered mat-elevation-z8">
+                    <tr class="table-primary">
+                        <th> <h2>Insérer l'ingredient</h2></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form [formGroup]="addIngredient" (ngSubmit)="onSubmit()">
+                                Nom de l'ingredient<input type="text" class= "form-control" formControlName="nom_ingredient" placeholder="nom"><br>
+                                Quantité de l'ingredient<input type="text" class= "form-control" formControlName="quantite_ingredient" placeholder="quantité"><br>
+                                Prix de l'ingredient<input type="text" class= "form-control" formControlName="prixUnitaire_ingredient" placeholder="prix"><br>
+                                <button  class="btn btn-outline-success btn-sm" type="submit" [disabled] ="!addIngredient.valid" (click)="confirmeI()">Valider</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        
+    </div>
+</div>

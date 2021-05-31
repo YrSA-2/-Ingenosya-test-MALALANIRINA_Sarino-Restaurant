@@ -1,0 +1,84 @@
+<br/>
+<br/>
+<br/>
+<div>
+    <div class="container">
+        <table mat-table class="table table-bordered mat-elevation-z8">
+            <tr class="table-primary">
+                <th> <h2>Insérer le repas</h2></th>
+                <th> <h2>Insérer l'ingredient </h2></th>
+                <th> <h2>Insérer le couvert</h2></th>
+            </tr>
+            <tr>
+                <td>
+                    <form [formGroup]="addRepas" (ngSubmit)="onSubmit()">
+                        Nom de repas<input type="text" id="nomRepas" class= "form-control" formControlName="nom_repas" placeholder="nom du repas" ><br>
+                        Quantité de repas<input type="number" class= "form-control" formControlName="quantite_repas" placeholder="quantité du repas"><br>
+                        Servitte de table<input type="text" class= "form-control" formControlName="serviette_repas" placeholder="nombre de serviette de table"><br>
+                        choisir l'emballage <br>
+                        <ng-select  
+                            placeholder="Choisir l'emballage"
+                            [(ngModel)]="selectedE" 
+                            (ngModelChange)="emballageSelect($event)"
+                            required
+                            formControlName="id_emballage">
+                            <ng-option [value]="emb.id_emballage" *ngFor="let emb of emballageList">{{emb.type_emballage}}</ng-option>
+                        </ng-select>
+                        <button  class="btn btn-sm btn-outline-success" type="submit" [disabled] ="!addRepas.valid" (click)="confirmD()">Valider</button>
+                    </form>
+                </td>
+                <td>
+                      
+                    <form [formGroup]="addIngredientRepas" (ngSubmit)="onSubmitIngredient()">
+                        Repas <a href="/insertrepas" class="btn btn-outline-info btn-sm">Actualiser la liste</a><br>
+                        <ng-select  
+                            placeholder="Choisir le repas"
+                            [(ngModel)]="selectedR" 
+                            (ngModelChange)="repasSelect($event)"
+                            required
+                            formControlName="id_repas">
+                            <ng-option [value]="repas.id_repas" *ngFor="let repas of repasList">{{repas.nom_repas}}</ng-option>
+                        </ng-select>
+                        <br>
+                        Ingredient<br>
+                        <ng-select  
+                            placeholder="choisir l'ingredient"
+                            [(ngModel)]="selected" 
+                            (ngModelChange)="ingredientSelect($event)"
+                            required
+                            formControlName="id_ingredient">
+                            <ng-option [value]="ing.id_ingredient" *ngFor="let ing of ingredientList">{{ing.nom_ingredient}}</ng-option>
+                        </ng-select><br>
+                        Quantité <br/>
+                        <input type="string" class= "form-control" formControlName="quantite_ingredient" placeholder="quantité de l'engredient"><br/>
+                        <button class="btn btn-sm btn-outline-success" [disabled]="!addIngredientRepas.valid" type="submit" (click)="confirmeI()">Valider</button>
+                    </form>
+                </td>
+                <td>
+                    <form [formGroup]="addCouvertRepas" (ngSubmit)="onSubmitCouvert()">
+                        Repas<br>
+                        <ng-select  
+                            placeholder="Choisir le repas"
+                            [(ngModel)]="selectedR" 
+                            (ngModelChange)="repasSelect($event)"
+                            required
+                            formControlName="id_repas">
+                            <ng-option [value]="repas.id_repas" *ngFor="let repas of repasList">{{repas.nom_repas}}</ng-option>
+                        </ng-select>
+                        <br>
+                        <strong>Couvert</strong>
+                        <ng-select 
+                            placeholder="Choisir le couvert"
+                            [(ngModel)]="selectedC" 
+                            (ngModelChange)="couvertSelect($event)"
+                            required
+                            formControlName="id_couvert" >
+                            <ng-option [value]="couv.id_couvert" *ngFor="let couv of couvertList">{{couv.element_couvert}}</ng-option>
+                        </ng-select><br/>
+                        <button class="btn btn-sm btn-outline-success" [disabled]="!addCouvertRepas.valid" type="submit" (click)="confirmeC()">Valider</button>
+                </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+

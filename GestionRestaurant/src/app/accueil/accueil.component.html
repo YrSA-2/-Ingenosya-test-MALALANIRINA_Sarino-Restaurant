@@ -1,0 +1,28 @@
+<br/><br/><br/>
+<div class="container">
+    <div style="text-align:center">
+      <h1 class="title">
+        *^* GESTION D’UN RESTAURANT *^*
+      </h1>
+    </div>
+    <div class="container-fluid">
+      <div style="text-align:center">
+        <table mat-table class="table table-bordered mat-elevation-z8">
+            <tr class="bg-info">
+                
+                <th>Nom repas </th>
+                <th>Quantité Repas</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let repas of repasList">
+                <td>{{ repas.nom_repas }}</td>
+                <td>{{ repas.quantite_repas }}</td>
+                
+                <td>
+                  <a class="btn btn-sm text-white btn-primary" href="singlerepas/{{repas.id_repas}}">Détails de  ce repas</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</div>

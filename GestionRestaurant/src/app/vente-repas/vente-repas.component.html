@@ -1,0 +1,68 @@
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-md-12" style="background-color: cadetblue; text-align: center;height: 5em; top: 0.2em; border-top: 3px solid tomato;
+            border-bottom: 1px solid tomato;">
+                <h1>VENTE DE REPAS</h1>
+            </div>
+            <div class="col-md-4" style="top: 3em; left: 5em;">
+                <table class="table table-bordered table-primary">
+                    <tr class="table table-secondary">
+                        <th> Nom du Repas</th>
+                    </tr>
+                    <tr>
+                        <td> <strong>{{repasOne.nom_repas}}</strong></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4" style="margin-top: -3.77em; margin-left: 30em;">
+                <table class="table table-bordered">
+                    <tr class="table table-secondary">
+                        <th> Total de prix des ingredients</th>
+                    </tr>
+                    <tr *ngFor="let re of repasIngredient">
+                        <td *ngIf="re.id_repas === repasOne.id_repas">
+                            <table class="table table-bordered table-primary">
+                                <tr>
+                                    <td>
+                                        <strong>{{(re.prixUnitaire_ingredient*1)*(repasOne.quantite_repas*1)}}</strong>
+                                    </td>
+                                    <td> {{re.nom_ingredient}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div><br>
+            <hr>
+            <div class="col-md-12">
+                <table class="col-md-12">
+                    <tr>
+                        <td>
+                            <div style="margin-top: 5%;">
+                                <h4>Le dépense total pour ce repas est :</h4>
+                                <p><strong><span>coût total</span></strong></p>
+                            </div>
+                        </td>
+                         <td>
+                            <div class="" style="margin-top:5em;">
+                                <table class="table table-striped table-dark mat-elevation-z8" style="width: 100%; float: left;">
+                                    <tr>
+                                        <td>
+                                            <form action="#">
+                                                <input type="text" placeholder="prix de vente"><br><br>
+                                                <a href="#" class="btn btn-outline-success" onclick="confirm('Confirmer la vente de ce repas')">VENDRE</a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>        
+                        </td>
+                    </tr>
+                </table>        
+            </div>
+        </div>
+    </div>
+</div>

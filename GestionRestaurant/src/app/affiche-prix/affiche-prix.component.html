@@ -1,0 +1,40 @@
+<br><br><br>
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <table class="table table-striped" style="text-align: center;">
+                <tr class="table-primary">
+                    <th><strong>INGREDIENTS</strong></th>
+                    <th><strong>COUVERTS</strong></th>
+                </tr>
+                <tr>
+                    <td>
+                        <table mat-table class="table table-bordered mat-elevation-z8" style="margin-top: 2%;">
+                            <tr class="table-secondary">
+                                <th>NOM</th>
+                                <th>PRIX (Ariary)</th>
+                            </tr>
+                            <tr *ngFor="let pri of prixIngredientList">
+                                <td> {{pri.nom_ingredient}}</td>
+                                <td> {{pri.prixUnitaire_ingredient}}</td>
+                            </tr>
+                        </table> 
+                    </td>
+                    <td>
+                        <table mat-table class="table table-bordered mat-elevation-z8" style="margin-top: 2%;">
+                            <tr class="table-secondary">
+                                <th>NOM</th>
+                                <th>PRIX (Ariary)</th>
+                            </tr>
+                            <tr *ngFor="let pri of prixCouvertList">
+                                <td> {{pri.element_couvert}}</td>
+                                <td> {{pri.prix_couvert}}</td>
+                            </tr>
+                        </table> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
